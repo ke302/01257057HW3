@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		5BE865AA2EA2263C00AE4FD2 /* 01257057HW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 01257057HW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BE865AA2EA2263C00AE4FD2 /* 01257057HW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = 01257057HW3.app; path = "/Users/user05/Desktop/01257057HW3/build/Debug-iphoneos/01257057HW3.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,16 +33,7 @@
 			isa = PBXGroup;
 			children = (
 				5BE865AC2EA2263C00AE4FD2 /* 01257057HW3 */,
-				5BE865AB2EA2263C00AE4FD2 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		5BE865AB2EA2263C00AE4FD2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5BE865AA2EA2263C00AE4FD2 /* 01257057HW3.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,7 +86,7 @@
 			mainGroup = 5BE865A12EA2263C00AE4FD2;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 5BE865AB2EA2263C00AE4FD2 /* Products */;
+			productRefGroup = 5BE865A12EA2263C00AE4FD2;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
