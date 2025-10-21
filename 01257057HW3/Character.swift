@@ -64,4 +64,5 @@ let CharacterArray: [Character] = [
     Character(image: "alice", name: "愛麗絲·泰姆菲爾德", race: "兔希人", factions: "怪啖屋", gender: "女", birthday: "08/30", element: "物理", type: "異常", rank: "S", description: ""),
     Character(image: "yidhari", name: "伊德海莉·墨菲", race: "章魚希人", factions: "怪啖屋", gender: "女", birthday: "03/19", element: "冰", type: "命破", rank: "S", description: ""),
     Character(image: "lucia", name: "盧西婭", race: "羊希人", factions: "怪啖屋", gender: "女", birthday: "03/17", element: "以太", type: "支援", rank: "S", description: ""),
-    Character(image: "ukinami", name: "浮波袖柚", race: "人類", factions: "怪啖屋", gender: "女", birthday: "11/02", element: "物理", type: "支援", rank: "S", description: "")]
+    Character(image: "ukinami", name: "浮波袖柚", race: "人類", factions: "怪啖屋", gender: "女", birthday: "11/02", element: "物理", type: "支援", rank: "S", description: ""),
+]
