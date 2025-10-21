@@ -60,6 +60,27 @@ struct CharacterDetail: View {
     let character: Character
     
     var body: some View {
-        Text(character.name)
+        ScrollView{
+            VStack{
+                HStack{
+                    Image(character.image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 300)
+                    Text(character.name)
+                        .font(Font.largeTitle.bold())
+                }
+                Text("種族：" + character.race)
+                Text("陣營：" + character.factions)
+                Text("性別：" + character.gender)
+                Text("生日：" + character.birthday)
+                Text("屬性：" + character.element)
+                Text("特性：" + character.type)
+                Text("等級：" + character.rank)
+                Text(character.description)
+            }
+    
+        }
+        
     }
 }

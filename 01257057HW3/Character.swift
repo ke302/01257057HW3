@@ -22,10 +22,29 @@ struct Character: Identifiable{
 }
 
 let CharacterArray: [Character] = [
-    Character(image: "anby", name: "安比．德瑪拉", race: "人類", factions: "狡兔屋", gender: "女", birthday: "02/20", element: "電", type: "擊破", rank: "A", description: ""),
+    Character(image: "anby", name: "安比．德瑪拉", race: "人類", factions: "狡兔屋", gender: "女", birthday: "02/20", element: "電", type: "擊破", rank: "A", description: """
+              //目標確認，開始行動。//
+
+              ---
+
+              從不提起自己的故事，彷彿沒有過去，是個謎一般的少女。
+              性格沉著冷靜，戰鬥風格異常幹練高效，像是經歷過常年的訓練。
+              在一次意外中，被妮可「撿」回了「狡兔屋」，從此對她產生了如同雛鳥情結般的情感依賴。
+              平時最喜歡做的事是看電影，但由於缺乏某些常識，似乎......總是會把故事當真。
+              """),
     Character(image: "billy", name: "比利·奇德", race: "機器人", factions: "狡兔屋", gender: "男", birthday: "11/25", element: "物理", type: "強攻", rank: "A", description: ""),
     Character(image: "nicole", name: "妮可·德瑪拉", race: "人類", factions: "狡兔屋", gender: "女", birthday: "11/11", element: "以太", type: "支援", rank: "A", description: ""),
-    Character(image: "nekomiya", name: "貓宮又奈", race: "貓希人", factions: "狡兔屋", gender: "女", birthday: "07/30", element: "物理", type: "強攻", rank: "S", description: ""),
+    Character(image: "nekomiya", name: "貓宮又奈", race: "貓希人", factions: "狡兔屋", gender: "女", birthday: "07/30", element: "物理", type: "強攻", rank: "S", description:"""
+    /最**好吃**的鯖魚，
+    永遠是還沒吃到的那一條～/
+
+    ---
+
+    活潑調皮會搞怪，你的錢包她也愛。（不開玩笑，她真的愛）
+    身手矯健，行事大膽。再危險的空洞也敢進去探一探。
+    「貓愛吃魚」其實是一種不正確的刻板印象。但貓又確實愛吃魚。
+    經歷過許多「好奇心害死貓」的瞬間，也見識過不少不能說的秘密。
+    """),
     Character(image: "lucy", name: "露西", race: "人類", factions: "卡呂冬之子", gender: "女", birthday: "08/14", element: "火", type: "支援", rank: "A", description: ""),
     Character(image: "piper", name: "派派．韋爾", race: "人類", factions: "卡呂冬之子", gender: "女", birthday: "10/21", element: "物理", type: "異常", rank: "A", description: ""),
     Character(image: "pulchra", name: "波可娜．費雷尼", race: "貓希人", factions: "卡呂冬之子", gender: "女", birthday: "06/19", element: "物理", type: "擊破", rank: "A", description: ""),
