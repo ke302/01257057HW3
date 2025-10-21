@@ -7,7 +7,8 @@
 
 import UIKit
 
-struct Character{
+struct Character: Identifiable{
+    var id : String{name}
     let image: String
     let name: String
     let race: String
