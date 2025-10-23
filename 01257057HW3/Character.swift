@@ -641,7 +641,7 @@ struct CharacterList: View{
                 }
             }
             .padding()
-            .navigationTitle("陣營列表")
+            .navigationTitle("角色列表")
         }
     }
 }
@@ -735,3 +735,37 @@ struct PropertyRowView: View {
         }
     }
 }
+
+struct CharacterCardView: View{
+    let Character: Character
+    var body:some View{
+        HStack {
+            Spacer()
+            VStack{
+                ZStack{
+                    Image(Character.image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 150, height: 150, alignment: .top)
+                        .clipShape(Circle())
+                    
+                    Circle()
+                        .stroke(Color.purple, lineWidth: 5)
+                        .frame(width: 150, height: 150)
+                }
+                
+                Text(Character.name)
+                    .font(.title3)
+            }
+            .padding(.vertical, 10)
+            Spacer()
+        }
+    }
+}
+
+
+let newCharacterNames: [String] = ["伊德海莉·墨菲", "盧西婭", "狛野真斗"]
+let newCharacters: [Character] = CharacterArray.filter{character in
+    return newCharacterNames.contains(character.name)
+}
+
