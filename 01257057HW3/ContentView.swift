@@ -19,11 +19,7 @@ struct ContentView: View {
                 FactionList()
             }
             Tab("主頁", systemImage: "house.fill"){
-                HStack{
-                    Spacer()
-                    HomeView()
-                    Spacer()
-                }
+                HomeView()
             }
             Tab("關於", systemImage: "book.fill"){
                 AboutView()
@@ -32,6 +28,7 @@ struct ContentView: View {
                 GachaView()
             }
         }
+        .tabViewStyle(.sidebarAdaptable)
         
     }
 }

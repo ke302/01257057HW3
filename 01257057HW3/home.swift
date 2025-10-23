@@ -36,13 +36,12 @@ struct HomeView: View {
     var body: some View {
         NavigationView { // 讓內部導航有效
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack {
                     
                     // 1. 頂部歡迎區塊
                     Text("歡迎來到絕區零")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .padding(.horizontal)
                     
                     // 2. 特色內容卡片
             
@@ -55,6 +54,7 @@ struct HomeView: View {
                             .cornerRadius(10)
                         Spacer()
                     }
+                    .padding(.horizontal)
                         
                         
                     // 4. 快速導航：熱門角色 (導航到 Character Tab)
@@ -72,7 +72,6 @@ struct HomeView: View {
                             }label:{
                                 CharacterCardView(Character: currentcharacter)
                             }
-                            .buttonStyle(PlainButtonStyle())
                             .transition(.opacity.animation(.easeInOut(duration: 1.0)))
                         }else{
                             Text("載入中...")
@@ -98,6 +97,7 @@ struct HomeView: View {
                     
                 }
                 .padding(.vertical)
+                .frame(maxWidth: .infinity)
             }
             .navigationTitle("主頁")
             .navigationBarHidden(true) // 如果您想讓內容頂到最上面
