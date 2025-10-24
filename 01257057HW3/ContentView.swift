@@ -36,6 +36,7 @@ struct ContentView: View {
 
 
 struct AboutView: View{
+    @Environment(\.horizontalSizeClass) var sizeClass
     var body: some View{
         ScrollView{
             VStack(alignment: .leading, spacing: 20){
@@ -49,8 +50,9 @@ struct AboutView: View{
                         Image("zzz")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 50, height: 50)
+                            .frame(width: sizeClass == .regular ? 100:50, height: sizeClass == .regular ? 100:50)
                         Text("官方網站")
+                            .font(sizeClass == .regular ? .title:.body)
                     }
                 })
                 .foregroundStyle(.gray)
@@ -59,8 +61,9 @@ struct AboutView: View{
                         Image("zzz")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 50, height: 50)
+                            .frame(width: sizeClass == .regular ? 100:50, height: sizeClass == .regular ? 100:50)
                         Text("bilibiliwiki")
+                            .font(sizeClass == .regular ? .title:.body)
                     }
                 })
                 .foregroundStyle(.gray)
@@ -69,8 +72,9 @@ struct AboutView: View{
                         Image("zzz")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 50, height: 50)
+                            .frame(width: sizeClass == .regular ? 100:50, height: sizeClass == .regular ? 100:50)
                         Text("萌娘百科")
+                            .font(sizeClass == .regular ? .title:.body)
                     }
                 })
                 .foregroundStyle(.gray)
@@ -79,8 +83,9 @@ struct AboutView: View{
                         Image("zzz")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 50, height: 50)
+                            .frame(width: sizeClass == .regular ? 100:50, height: sizeClass == .regular ? 100:50)
                         Text("HoYowiki")
+                            .font(sizeClass == .regular ? .title:.body)
                     }
                 })
                 .foregroundStyle(.gray)

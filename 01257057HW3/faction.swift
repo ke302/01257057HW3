@@ -124,24 +124,25 @@ struct  FactionList: View{
     }
 }
 struct FactionRow: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
     let faction: faction
-    
-    // 設定單個框框的固定高度和寬度
-    let boxWidth: CGFloat = 160 // 建議一個最大寬度
-    let boxHeight: CGFloat = 180
 
     var body: some View {
+        // 設定單個框框的固定高度和寬度
+        let boxWidth: CGFloat = sizeClass == .regular ? 320 : 160// 建議一個最大寬度
+        let boxHeight: CGFloat = sizeClass == .regular ? 390: 180
         VStack {
             Image(faction.name)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 120, height: 100) // 圖片大小不變
+                .frame(width: sizeClass == .regular ? 240 : 120,
+                       height: sizeClass == .regular ? 200 : 100) // 圖片大小不變
             
             // 陣營名稱
             Text(faction.name)
                 .padding(.horizontal, 8) // 調整內邊距
                 .padding(.vertical, 4)
-                .font(.system(size: 14, weight: .semibold))
+                .font(.system(size: sizeClass == .regular ? 28 : 14, weight: .semibold))
                 .background {
                     RoundedRectangle(cornerRadius: 8)
                         .fill(Color.darkLabelBackground)
@@ -159,6 +160,7 @@ struct FactionRow: View {
 }
     
 struct factionDetail: View{
+    @Environment(\.horizontalSizeClass) var sizeClass
     let faction: faction
     // Make this computed so it can use self, and compare to faction.name
     var filteredCharacters: [Character] {
@@ -172,13 +174,14 @@ struct factionDetail: View{
                     Image(faction.name)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 120, height: 150)
+                        .frame(width: sizeClass == .regular ? 240 : 120,
+                               height: sizeClass == .regular ? 300 : 150)
                     Text(faction.name)
                         .font(.largeTitle)
                 }
                 
                 Text(LocalizedStringKey(faction.description))
-                
+                    .font(sizeClass == .regular ? .title: .body)
                 ForEach(filteredCharacters){ character in
                     NavigationLink {
                         CharacterDetail(character: character)

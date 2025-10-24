@@ -10,6 +10,7 @@ internal import Combine
 import AVKit
 
 struct HomeView: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
     @State private var isDetailViewActive: Bool = false
     @State var topCharacter: [Character] = newCharacters
     @State var currenIndex: Int = 0
@@ -34,14 +35,16 @@ struct HomeView: View {
     }
     
     var body: some View {
-        NavigationView { // 讓內部導航有效
+        NavigationStack { // 讓內部導航有效
             ScrollView {
                 VStack {
                     
                     // 1. 頂部歡迎區塊
-                    Text("歡迎來到絕區零")
+                    Text("歡迎來到絕區零!!!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                        .frame(width: 300,
+                               height: sizeClass == .regular ? 200:150)
                     
                     // 2. 特色內容卡片
             
@@ -59,9 +62,11 @@ struct HomeView: View {
                         
                     // 4. 快速導航：熱門角色 (導航到 Character Tab)
                     Text("最新角色")
-                        .font(.title2)
+                        .font(.title)
                         .fontWeight(.medium)
                         .padding(.horizontal)
+                        .frame(width: 300,
+                               height: sizeClass == .regular ? 200:150)
                     ZStack{
                         if !topCharacter.isEmpty{
                             let currentcharacter = topCharacter[currenIndex]
@@ -77,17 +82,21 @@ struct HomeView: View {
                             Text("載入中...")
                         }
                     }
-                    .buttonStyle(PlainButtonStyle())
                     .padding(.horizontal)
                     
                     Text("下一位新角色")
-                        .font(.title2)
+                        .font(.title)
                         .fontWeight(.medium)
                         .padding(.horizontal)
+                        .frame(width: 300,
+                               height: sizeClass == .regular ? 200:150)
                     HStack{
                         Spacer()
                         VideoPlayer(player: player)
-                            .frame(width:300,height:300)
+                            .frame(
+                                width: sizeClass == .regular ? 600: 300,
+                                height: sizeClass == .regular ? 600: 300
+                            )
                                 // 關鍵：在 VideoPlayer 載入時，設定播放器
                             .onAppear {
                                 // 立即開始播放

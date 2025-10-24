@@ -629,6 +629,7 @@ let CharacterArray: [Character] = [
 ]
 
 struct CharacterList: View{
+    
     var body: some View {
         NavigationStack{
             List{
@@ -646,6 +647,7 @@ struct CharacterList: View{
     }
 }
 struct CharacterRow: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
     let character: Character
     
     var body: some View {
@@ -653,15 +655,16 @@ struct CharacterRow: View {
             Image(character.factions)
                 .resizable()
                 .scaledToFit()
-                .frame(width:50)
+                .frame(width: sizeClass == .regular ? 150:50)
             Text(character.name)
-                .font(.headline)
-            Spacer()
+                .font(.title)
         }
     }
 }
 
 struct CharacterDetail: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
     let character: Character
     
     var PrimaryColor: Color {
@@ -675,13 +678,14 @@ struct CharacterDetail: View {
                     Image(character.image)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 150, height: 200)
+                        .frame(width: sizeClass == .regular ? 300:150,
+                               height: sizeClass == .regular ? 400:200)
                         .clipShape(RoundedRectangle(cornerRadius: 15))
                         .shadow(color: PrimaryColor, radius: 5)
                     
                     VStack {
                         Text(character.name)
-                            .font(Font.largeTitle.bold())
+                            .font(.largeTitle.bold())
                         PropertyRowView(label: "種族", value: character.race)
                         PropertyRowView(label: "性別", value: character.gender)
                         PropertyRowView(label: "生日", value: character.birthday)
@@ -695,7 +699,7 @@ struct CharacterDetail: View {
                 }
                 Text(LocalizedStringKey(character.description))
                     .padding(.horizontal)
-                    .font(.system(size: 20))
+                    .font(.system(size: sizeClass == .regular ? 30: 20))
             }
     
         }
@@ -723,6 +727,7 @@ extension Color{
 }
 
 struct PropertyRowView: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
     let label: String
     let value: String
     let labelWidth: CGFloat = 65
@@ -733,10 +738,12 @@ struct PropertyRowView: View {
             Text(value)
                 .frame(maxWidth: .infinity, alignment: .init(horizontal: .leading, vertical: .center))
         }
+        .font(sizeClass == .regular ? .largeTitle: .body)
     }
 }
 
 struct CharacterCardView: View{
+    @Environment(\.horizontalSizeClass) var sizeClass
     let Character: Character
     var body:some View{
         HStack {
@@ -746,12 +753,14 @@ struct CharacterCardView: View{
                     Image(Character.image)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 150, height: 150, alignment: .top)
+                        .frame(width: sizeClass == .regular ? 300:150,
+                               height: sizeClass == .regular ? 300:150, alignment: .top)
                         .clipShape(Circle())
                     
                     Circle()
                         .stroke(Color.purple, lineWidth: 5)
-                        .frame(width: 150, height: 150)
+                        .frame(width: sizeClass == .regular ? 300:150,
+                               height: sizeClass == .regular ? 300:150)
                 }
                 
                 Text(Character.name)

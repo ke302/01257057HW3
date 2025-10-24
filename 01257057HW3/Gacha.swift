@@ -12,7 +12,7 @@ struct GachaView: View {
     // 1. 定義 GIF 檔案的編號範圍
     let minGifIndex = 1
     let maxGifIndex = 10 // <-- 請修改為您擁有的 GIF 總數量 (例如，如果您有 50 個 GIF，就設為 50)
-    
+    @Environment(\.horizontalSizeClass) var sizeClass
     // 2. @State 變數來儲存當前抽到的 GIF 編號 (Int)
     @State private var currentGifIndex: Int? = nil
     
@@ -34,7 +34,8 @@ struct GachaView: View {
             if let gifName = currentGifName {
                 // 使用計算出的 String 名稱來載入 GifImage
                 GifImage(name: gifName)
-                    .frame(width: 300, height: 300)
+                    .frame(width: sizeClass == .regular ? 900:300,
+                           height: sizeClass == .regular ? 900:300)
                     // 關鍵：ID 隨著 gifName 變化，確保 GIF 重播
                     .id(gifName)
                     .transition(.opacity.animation(.easeInOut(duration: 0.5)))
@@ -42,7 +43,8 @@ struct GachaView: View {
                 Text("點擊按鈕進行抽獎！")
                     .font(.title2)
                     .foregroundColor(.gray)
-                    .frame(width: 300, height: 300)
+                    .frame(width: sizeClass == .regular ? 600:300,
+                           height: sizeClass == .regular ? 600:300)
             }
             
             Spacer()
